@@ -30,7 +30,7 @@ public class Require
 		
 		RANDOM_PLAYERS.add("Andy");
 		RANDOM_PLAYERS.add("Sid");
-		RANDOM_PLAYERS.add("Pekka");
+		RANDOM_PLAYERS.add("Pete");
 		RANDOM_PLAYERS.add("Mark");
 //		RANDOM_PLAYERS.add("Ben");
 //		RANDOM_PLAYERS.add("Allan");
