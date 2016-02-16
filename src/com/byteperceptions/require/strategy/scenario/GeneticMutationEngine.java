@@ -33,7 +33,8 @@ import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScen
 import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScenarioCanAffordStock;
 import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScenarioCanBeMajorityOwner;
 import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScenarioCanBeMinorityOwner;
-import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScenarioHaveFourStockLead;
+import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScenarioHaveFourStockMinorityLead;
+import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScenarioHaveFourStockMajorityLead;
 import com.byteperceptions.require.strategy.scenario.purchasestocks.PurchaseScenarioSoleMajorityMinorityExists;
 import com.byteperceptions.require.strategy.scenario.selectsurvivor.SelectSurvivorScenario;
 import com.byteperceptions.require.strategy.scenario.selectsurvivor.SelectSurvivorScenarioNeedMoney;
@@ -62,7 +63,8 @@ public class GeneticMutationEngine
 		purchaseScenarios
 				.add(new PurchaseScenarioAreSharesAvailableForPurchase());
 		purchaseScenarios.add(new PurchaseScenarioCanBeMinorityOwner());
-		purchaseScenarios.add(new PurchaseScenarioHaveFourStockLead());
+		purchaseScenarios.add(new PurchaseScenarioHaveFourStockMinorityLead());
+		purchaseScenarios.add(new PurchaseScenarioHaveFourStockMajorityLead());
 
 		playTileScenarios
 				.add(new PlayTileScenarioIsMergerSoleMajorityForSingleDeceasedHotel());
@@ -105,7 +107,7 @@ public class GeneticMutationEngine
 				System.out.println(player + ":" +(i+1)+ ":" +activeChain + " :" +valueOfStockPurchase);
 				
 				if (valueOfStockPurchase > maxValueStock
-						&& valueOfStockPurchase > 0)
+						&& valueOfStockPurchase >= 0)
 				{
 					maxValueStock = valueOfStockPurchase;
 					hotelChainToPurchase = activeChain;

@@ -32,15 +32,7 @@ public class PurchaseScenarioCanBeMajorityOwner implements PurchaseScenario
 	{
 		if (isPlayerInScenario(player, hotelChain, sharesLeftToPurchaseThisTurn))
 		{
-			//lower the value on majority once we get to nine.
-			if (player.getStockRegistry().getNumberOfShares(hotelChain) > 8)
-			{
-				return 2;
-			}
-			else
-			{
-				return 5;
-			}
+			return 5;
 		}
 
 		return 0;

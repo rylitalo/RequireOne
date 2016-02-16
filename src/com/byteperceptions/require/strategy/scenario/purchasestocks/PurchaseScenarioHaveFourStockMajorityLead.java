@@ -23,7 +23,7 @@ import com.byteperceptions.require.registry.PlayerRegistry;
  * @author Ryan Ylitalo
  *
  */
-public class PurchaseScenarioHaveFourStockLead implements PurchaseScenario
+public class PurchaseScenarioHaveFourStockMajorityLead implements PurchaseScenario
 {
 
 	@Override
@@ -44,6 +44,11 @@ public class PurchaseScenarioHaveFourStockLead implements PurchaseScenario
 		//for both minority and majority.
 		
 		int countOfPlayersCloserThan4Stocks = 0;
+		
+		if(!hotelChain.getMajorityStockHolders().contains(player) || hotelChain.getMajorityStockHolders().size() > 1){
+			return false;
+		}
+		
 		
 		for(Player gamePlayer: PlayerRegistry.getInstance().getAllPlayers()){
 			if(gamePlayer.equals(player)){
