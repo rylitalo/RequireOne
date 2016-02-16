@@ -102,7 +102,6 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 				hotelChainStatistics);
 		addSharesAvailableButtonToPanel(HotelChain.IMPERIAL,
 				hotelChainStatistics);
-		addButtonToPanel(" ", null, hotelChainStatistics);
 
 		addButtonToPanel("Size", null, hotelChainStatistics);
 		addButtonToPanel(" ", null, hotelChainStatistics);
@@ -113,7 +112,6 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 		addChainSizeButtonToPanel(HotelChain.AMERICAN, hotelChainStatistics);
 		addChainSizeButtonToPanel(HotelChain.CONTINENTAL, hotelChainStatistics);
 		addChainSizeButtonToPanel(HotelChain.IMPERIAL, hotelChainStatistics);
-		addButtonToPanel(" ", null, hotelChainStatistics);
 
 		addButtonToPanel("Price", null, hotelChainStatistics);
 		addButtonToPanel(" ", null, hotelChainStatistics);
@@ -124,7 +122,6 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 		addChainPriceButtonToPanel(HotelChain.AMERICAN, hotelChainStatistics);
 		addChainPriceButtonToPanel(HotelChain.CONTINENTAL, hotelChainStatistics);
 		addChainPriceButtonToPanel(HotelChain.IMPERIAL, hotelChainStatistics);
-		addButtonToPanel(" ", null, hotelChainStatistics);
 
 		return hotelChainStatistics;
 	}
@@ -132,7 +129,7 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 	public JPanel createPlayerScoreSheet()
 	{
 		JPanel playerScoreSheet = new JPanel();
-		playerScoreSheet.setLayout(new GridLayout(0, 10));
+		playerScoreSheet.setLayout(new GridLayout(0, 9));
 		playerScoreSheet.setBorder(new TitledBorder(new SoftBevelBorder(
 				BevelBorder.RAISED), "Score Sheet"));
 
@@ -147,7 +144,6 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 		americanButton.setForeground(Color.WHITE);
 		addButtonToPanel("C", Color.CYAN, playerScoreSheet);
 		addButtonToPanel("I", Color.PINK, playerScoreSheet);
-		addButtonToPanel("NPV", null, playerScoreSheet);
 
 		for (Player player : PlayerRegistry.getInstance().getAllPlayers())
 		{
@@ -169,7 +165,6 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 					player, playerScoreSheet));
 			playerButtons.add(addHotelStockButton(HotelChain.IMPERIAL, player,
 					playerScoreSheet));
-			playerButtons.add(addPlayerNPVButton(player, playerScoreSheet));
 			buttonsForPlayerMap.put(player, playerButtons);
 		}
 
@@ -235,15 +230,6 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 	public JButton addPlayerCashButton(Player player, JPanel component)
 	{
 		PlayerCashButton button = new PlayerCashButton(player);
-		button.setBorder(new LineBorder(Color.GRAY));
-		hotelStatisticsButtons.add(button);
-		component.add(button);
-		return button;
-	}
-
-	public JButton addPlayerNPVButton(Player player, JPanel component)
-	{
-		PlayerNPVButton button = new PlayerNPVButton(player);
 		button.setBorder(new LineBorder(Color.GRAY));
 		hotelStatisticsButtons.add(button);
 		component.add(button);
