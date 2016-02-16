@@ -16,6 +16,7 @@ package com.byteperceptions.require.strategy.scenario.purchasestocks;
 
 import com.byteperceptions.require.model.HotelChain;
 import com.byteperceptions.require.model.Player;
+import com.byteperceptions.require.registry.PlayerRegistry;
 
 
 /**
@@ -30,7 +31,7 @@ public class PurchaseScenarioHaveFourStockLead implements PurchaseScenario
 	{
 		if (isPlayerInScenario(player, hotelChain, sharesLeftToPurchaseThisTurn))
 		{
-			return -1;
+			return -5;
 		}
 
 		return 0;
@@ -39,8 +40,34 @@ public class PurchaseScenarioHaveFourStockLead implements PurchaseScenario
 	@Override
 	public boolean isPlayerInScenario(Player player, HotelChain hotelChain, int sharesLeftToPurchaseThisTurn)
 	{
-		return hotelChain.getMajorityStockHolders().contains(player) && hotelChain.getMajorityStockHolders().size() == 1 &&
-		hotelChain.getNumberOfStocksForMinority() < (player.getStockRegistry().getNumberOfShares(hotelChain) - 3);
+		//Returns true if there is one player or less who is closer than 4 stocks on the count.  IE:  Determines the lead
+		//for both minority and majority.
+		
+		int countOfPlayersCloserThan4Stocks = 0;
+		
+		for(Player gamePlayer: PlayerRegistry.getInstance().getAllPlayers()){
+			if(gamePlayer.equals(player)){
+				continue;
+			}
+			
+			if(gamePlayer.getStockRegistry().getNumberOfShares(hotelChain) > (player.getStockRegistry().getNumberOfShares(hotelChain) - 4)){
+				countOfPlayersCloserThan4Stocks++;
+			}
+		}
+		
+		return countOfPlayersCloserThan4Stocks <= 1;
+		
 	}
+	
+//	private boolean has4StockLeadForMajority(Player player, HotelChain hotelChain){
+//		return hotelChain.getMajorityStockHolders().contains(player) && hotelChain.getMajorityStockHolders().size() == 1 &&
+//				hotelChain.getNumberOfStocksForMinority() < (player.getStockRegistry().getNumberOfShares(hotelChain) - 3);
+//	}
+//	
+//	private boolean has4StockLeadForMinority(Player player, HotelChain hotelChain){
+//		return hotelChain.getMinorityStockHolders().contains(player) && hotelChain.getMajorityStockHolders().size() == 1 &&
+//				hotelChain.getMinorityStockHolders().size() == 1 && 
+//				hotelChain.getNumberOfStocksForMinority() < (player.getStockRegistry().getNumberOfShares(hotelChain) - 3);
+//	}
 
 }

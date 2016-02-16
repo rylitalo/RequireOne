@@ -96,9 +96,14 @@ public class GeneticMutationEngine
 				int valueOfStockPurchase = 0;
 				for (PurchaseScenario purchaseScenario : purchaseScenarios)
 				{
-					valueOfStockPurchase += purchaseScenario.calculateValue(
+					int scenarioValue = purchaseScenario.calculateValue(
 							player, activeChain, 3 - i);
+					System.out.println(player + ":" +(i+1)+ ":" +activeChain + " :" + purchaseScenario.getClass().getSimpleName() + ":"+  scenarioValue);
+					
+					valueOfStockPurchase += scenarioValue;
 				}
+				System.out.println(player + ":" +(i+1)+ ":" +activeChain + " :" +valueOfStockPurchase);
+				
 				if (valueOfStockPurchase > maxValueStock
 						&& valueOfStockPurchase > 0)
 				{
@@ -112,6 +117,8 @@ public class GeneticMutationEngine
 				StockShare stockShare = BankStockRegistry.getInstance()
 						.brokerSharePurchase(hotelChainToPurchase, player);
 				purchasedShares.add(stockShare);
+				System.out.println(player + " purchased:" +(i+1)+ ":" +stockShare.getHotelChain());
+				
 			}
 		}
 

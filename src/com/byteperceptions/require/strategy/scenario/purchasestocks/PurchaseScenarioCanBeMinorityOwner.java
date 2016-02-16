@@ -31,7 +31,7 @@ public class PurchaseScenarioCanBeMinorityOwner implements PurchaseScenario
 	{
 		if (isPlayerInScenario(player, hotelChain, sharesLeftToPurchaseThisTurn))
 		{
-			return 1;
+			return 3;
 		}
 
 		return 0;
@@ -40,7 +40,7 @@ public class PurchaseScenarioCanBeMinorityOwner implements PurchaseScenario
 	@Override
 	public boolean isPlayerInScenario(Player player, HotelChain hotelChain, int sharesLeftToPurchaseThisTurn)
 	{
-		return hotelChain.getMajorityStockHolders().size() == 1 && hotelChain.getNumberOfStocksForMinority() < (player
+		return hotelChain.getMajorityStockHolders().size() == 1 && hotelChain.getNumberOfStocksForMinority() <= (player
 				.getStockRegistry().getNumberOfShares(hotelChain) + Math.min(sharesLeftToPurchaseThisTurn,
 						BankStockRegistry.getInstance().getNumberOfShares(hotelChain)));
 	}

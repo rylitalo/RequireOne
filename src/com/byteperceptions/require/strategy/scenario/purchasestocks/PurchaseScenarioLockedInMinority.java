@@ -33,7 +33,7 @@ public class PurchaseScenarioLockedInMinority implements PurchaseScenario
 		if (isPlayerInScenario(player, hotelChain, sharesLeftToPurchaseThisTurn))
 		{
 			// Already locked in Majority, don't buy any more
-			return -5;
+			return -20;
 		}
 
 		return 0;
