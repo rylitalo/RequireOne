@@ -59,8 +59,7 @@ public class GameState
 				return playerGameState;
 			}
 		}
-		// Shouldn't ever get here.
-		return null;
+		throw new RuntimeException("Unable to find player game state for : " + player);
 	}
 
 	public void setTurnCounter(int turnCounter)

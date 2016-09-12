@@ -78,7 +78,6 @@ public class TurnRegistry
 			GameStateBroker.getInstance().captureGameState();
 
 			new Thread(new PlayerTurnThread(nextPlayerTurn)).start();
-			//nextPlayerTurn.takeTurn();
 		}
 	}
 

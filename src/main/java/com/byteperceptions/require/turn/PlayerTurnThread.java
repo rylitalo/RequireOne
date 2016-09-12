@@ -36,11 +36,11 @@ public class PlayerTurnThread implements Runnable
 	{
 		try
 		{
-			Thread.sleep(500);
+			Thread.sleep(700);
 		}
 		catch (Exception e)
 		{
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		player.takeTurn();
 	}

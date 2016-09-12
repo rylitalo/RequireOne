@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase=
+"http://www.byteperceptions.com/acquire" 
+    href="RequireOne.jnlp">
+    <information>
+        <title>Acquire</title>
+        <vendor>BytePerceptions</vendor>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.8+"
+              href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="RequireOne-all-1.0.jar"
+            main="true" />
+
+    </resources>
+    <application-desc
+         name="Aquire Game"
+         main-class=
+           "com.byteperceptions.require.RequireGameBoard"
+         width="950"
+         height="600">
+     </application-desc>
+     <update check="background"/>
+</jnlp>   

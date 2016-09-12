@@ -74,7 +74,7 @@ public class RequireGameBoard implements ActionListener
 			// handle exception
 		}
 
-		Require acquireGame = new Require(4, "Ryan");
+		Require acquireGame = new Require(4, "You");
 
 		JPanel leftPanel = new JPanel();
 		leftPanel.setLayout(new GridBagLayout());

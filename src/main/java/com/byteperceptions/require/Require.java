@@ -47,10 +47,10 @@ public class Require
 		RANDOM_PLAYERS.add("Sid");
 		RANDOM_PLAYERS.add("Pete");
 		RANDOM_PLAYERS.add("Mark");
-//		RANDOM_PLAYERS.add("Ben");
-//		RANDOM_PLAYERS.add("Allan");
-//		RANDOM_PLAYERS.add("Evan");
-//		RANDOM_PLAYERS.add("Mike");
+		RANDOM_PLAYERS.add("Ben");
+		RANDOM_PLAYERS.add("Allan");
+		RANDOM_PLAYERS.add("Evan");
+		RANDOM_PLAYERS.add("Mike");
 		
 		manualPlayer = new ManualPlayer(playerName);
 		PlayerRegistry.getInstance().clear();
