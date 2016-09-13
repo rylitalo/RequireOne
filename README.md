@@ -19,6 +19,8 @@ Run **gradle createJar** - this builds an executable jar file.
 Run the executable jar file created from the **gradle createJar**  command, which is generated in
 **build/libs/RequireOne-all-1.0.jar**
 
+**java -jar RequireOne-all-1.0.jar**
+
 
 ## Acquire Rules
 The rules for Acquire can be found at [here](https://en.wikipedia.org/wiki/Acquire "Acquire Rules") .
