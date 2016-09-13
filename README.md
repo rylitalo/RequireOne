@@ -16,8 +16,8 @@ the mechanics of how the game is played.
 Run **gradle createJar** - this builds an executable jar file.
 
 ## Run the Game
-Run the executable jar file created from the **gradle createJar**  command, which is generated in
-**build/libs/RequireOne-all-1.0.jar**
+Run the executable jar file created from the gradle createJar  command, which is generated in
+build/libs/RequireOne-all-1.0.jar
 
 **java -jar RequireOne-all-1.0.jar**
 
