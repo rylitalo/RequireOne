@@ -53,8 +53,12 @@ public class MergerTransactionDialog extends JDialog implements ActionListener
 	private static final Font STOCK_NUMBER_FONT = new Font(new JLabel()
 			.getFont().getName(), Font.BOLD, 30);
 
-	private static final String UP_ARROW_PATH = "images/up_arrow.png";
-	private static final String DOWN_ARROW_PATH = "images/down_arrow.png";
+	private static final ImageIcon UP_ARROW_ICON = new ImageIcon(
+			loadImage("images/up_arrow.png"));
+	private static final ImageIcon DOWN_ARROW_ICON = new ImageIcon(
+			loadImage("images/down_arrow.png"));
+	
+	
 
 	private JButton okButton;
 
@@ -102,24 +106,20 @@ public class MergerTransactionDialog extends JDialog implements ActionListener
 		tradeMaximumButton = new JButton("Maximum");
 		tradeMaximumButton.addActionListener(this);
 
-		incrementSharesSellButton = new JButton(new ImageIcon(
-				loadImage(UP_ARROW_PATH)));
+		incrementSharesSellButton = new JButton(UP_ARROW_ICON);
 		incrementSharesSellButton.addActionListener(this);
 
-		decrementSharesSellButton = new JButton(new ImageIcon(
-				loadImage(DOWN_ARROW_PATH)));
+		decrementSharesSellButton = new JButton(DOWN_ARROW_ICON);
 		decrementSharesSellButton.addActionListener(this);
 
-		incrementSharesTradeButton = new JButton(new ImageIcon(
-				loadImage(UP_ARROW_PATH)));
+		incrementSharesTradeButton = new JButton(UP_ARROW_ICON);
 		incrementSharesTradeButton.addActionListener(this);
 		if (BankStockRegistry.getInstance().getNumberOfShares(mergerSurvivor) == 0)
 		{
 			incrementSharesTradeButton.setEnabled(false);
 		}
 
-		decrementSharesTradeButton = new JButton(new ImageIcon(
-				loadImage(DOWN_ARROW_PATH)));
+		decrementSharesTradeButton = new JButton(DOWN_ARROW_ICON);
 		decrementSharesTradeButton.addActionListener(this);
 
 		okButton = new JButton("OK");
@@ -387,24 +387,21 @@ public class MergerTransactionDialog extends JDialog implements ActionListener
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 			img = loadImageWithClassloader(path, img, Thread.currentThread().getContextClassLoader());
 		}
-		
+		if(img == null){
+			
+		}
 		return img;
 	}
 
 	private static Image loadImageWithClassloader(String path, Image img,
 			ClassLoader loader) 
 	{
-		if (loader != null)
-		{
-			URL url = loader.getResource(path);
-			if (url != null)
-			{
-				Toolkit tk = Toolkit.getDefaultToolkit();
-				img = tk.getImage(url);
-			}
-		}
+		URL url = loader.getResource(path);
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		img = tk.getImage(url);
 		return img;
 	}
 
