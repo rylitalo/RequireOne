@@ -227,11 +227,6 @@ public class GeneticMutationEngine
 					mergerDeceased);
 		}
 
-		
-		
-		
-		
-		
 		if (new Random().nextInt() % 3 == 0)
 		{
 			int determineTradeAmount = Math.min(player.getStockRegistry()
