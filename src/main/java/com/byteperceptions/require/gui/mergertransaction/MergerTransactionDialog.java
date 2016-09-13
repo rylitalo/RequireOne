@@ -391,7 +391,7 @@ public class MergerTransactionDialog extends JDialog implements ActionListener
 			img = loadImageWithClassloader(path, img, Thread.currentThread().getContextClassLoader());
 		}
 		if(img == null){
-			
+			img = ImageRegistry.getInstance().loadImage(path);
 		}
 		return img;
 	}
