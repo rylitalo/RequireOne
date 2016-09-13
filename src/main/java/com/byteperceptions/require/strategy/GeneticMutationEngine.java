@@ -102,11 +102,11 @@ public class GeneticMutationEngine
 				{
 					int scenarioValue = purchaseScenario.calculateValue(
 							player, activeChain, 3 - i);
-					System.out.println(player + ":" +(i+1)+ ":" +activeChain + " :" + purchaseScenario.getClass().getSimpleName() + ":"+  scenarioValue);
+//					System.out.println(player + ":" +(i+1)+ ":" +activeChain + " :" + purchaseScenario.getClass().getSimpleName() + ":"+  scenarioValue);
 					
 					valueOfStockPurchase += scenarioValue;
 				}
-				System.out.println(player + ":" +(i+1)+ ":" +activeChain + " :" +valueOfStockPurchase);
+//				System.out.println(player + ":" +(i+1)+ ":" +activeChain + " :" +valueOfStockPurchase);
 				
 				if (valueOfStockPurchase > maxValueStock
 						&& valueOfStockPurchase >= 0)
