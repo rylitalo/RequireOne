@@ -121,7 +121,7 @@ public class GeneticMutationEngine
 				StockShare stockShare = BankStockRegistry.getInstance()
 						.brokerSharePurchase(hotelChainToPurchase, player);
 				purchasedShares.add(stockShare);
-				System.out.println(player + " purchased:" +(i+1)+ ":" +stockShare.getHotelChain());
+//				System.out.println(player + " purchased:" +(i+1)+ ":" +stockShare.getHotelChain());
 				
 			}
 		}
