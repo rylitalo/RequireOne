@@ -383,28 +383,27 @@ public class MergerTransactionDialog extends JDialog implements ActionListener
 
 		try
 		{
-			ClassLoader loader = ClassLoader.getSystemClassLoader();
-
-			if (loader != null)
-			{
-				URL url = loader.getResource(path);
-				if (url != null)
-				{
-					Toolkit tk = Toolkit.getDefaultToolkit();
-					img = tk.getImage(url);
-					return img;
-				}
-			}
+			img = loadImageWithClassloader(path, img, ClassLoader.getSystemClassLoader());
 		}
 		catch (Exception e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			img = loadImageWithClassloader(path, img, Thread.currentThread().getContextClassLoader());
 		}
 		
-		if (img == null)
+		return img;
+	}
+
+	private static Image loadImageWithClassloader(String path, Image img,
+			ClassLoader loader) 
+	{
+		if (loader != null)
 		{
-			img = ImageRegistry.getInstance().loadImage(path);
+			URL url = loader.getResource(path);
+			if (url != null)
+			{
+				Toolkit tk = Toolkit.getDefaultToolkit();
+				img = tk.getImage(url);
+			}
 		}
 		return img;
 	}

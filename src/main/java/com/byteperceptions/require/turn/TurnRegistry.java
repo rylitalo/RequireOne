@@ -107,7 +107,7 @@ public class TurnRegistry
 
 		RequireChangeListener.getInstance().fireBoardChangedEvent();
 		
-		JOptionPane.showMessageDialog(null, "Game Over. " + winner + " has won.");
+		JOptionPane.showMessageDialog(null, "Game Over. " + winner + " won.");
 
 	}
 

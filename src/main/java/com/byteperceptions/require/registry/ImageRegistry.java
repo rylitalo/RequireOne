@@ -50,8 +50,7 @@ public class ImageRegistry
 		}
 		catch (Exception e)
 		{
-		//	e.printStackTrace();
-			return null;
+			throw new RuntimeException(e);
 		}
 	}
 }
