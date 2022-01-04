@@ -139,8 +139,9 @@ public class TileRack extends JPanel implements TileRackChangeListener,
 		}
 		for (TileButton tileButton : deadTiles)
 		{
-			tileButton.getTile().getChipBoardButton().setBackground(
-					Color.DARK_GRAY);
+			tileButton.getTile().getChipBoardButton().setBackground(Color.DARK_GRAY);
+			tileButton.getTile().getChipBoardButton().setOpaque(true);
+
 			removeTileButton(tileButton);
 			pickNewTile();
 		}
@@ -168,14 +169,17 @@ public class TileRack extends JPanel implements TileRackChangeListener,
 		{
 			Tile tile = button.getTile();
 			tile.getChipBoardButton().setBackground(Color.white);
+			tile.getChipBoardButton().setOpaque(true);
 
 			if (tile.isStarterChip())
 			{
 				button.setBackground(STARTER_CHIP_COLOR);
+				button.setOpaque(true);
 			}
 			else if (TileRegistry.getInstance().isMergerChip(tile))
 			{
 				button.setBackground(MERGER_CHIP_COLOR);
+				button.setOpaque(true);
 			}
 			else if (TileRegistry.getInstance().getAdjoiningHotelChains(tile)
 					.size() == 1)
@@ -183,22 +187,18 @@ public class TileRack extends JPanel implements TileRackChangeListener,
 				HotelChain adjoiningChain = TileRegistry.getInstance()
 						.getAdjoiningHotelChains(tile).get(0);
 				button.setBackground(adjoiningChain.getColor());
-				if (adjoiningChain == HotelChain.AMERICAN)
-				{
-					button.setForeground(Color.WHITE);
-				}
-				else
-				{
-					button.setForeground(Color.BLACK);
-				}
+				button.setOpaque(true);
+				button.setForeground(Color.BLACK);
 			}
 			else if (isStarterWithChipOnTileRack(tile))
 			{
 				button.setBackground(STARTER_COMBO_CHIP_COLOR);
+				button.setOpaque(true);
 			}
 			else
 			{
 				button.setBackground(ORIGINAL_BUTTON_COLOR);
+				button.setOpaque(true);
 			}
 
 			if (tile.isPlayable())
@@ -275,8 +275,8 @@ public class TileRack extends JPanel implements TileRackChangeListener,
 		{
 			for (TileButton button : tileButtons)
 			{
-				button.getTile().getChipBoardButton().setBackground(
-						ORIGINAL_BUTTON_COLOR);
+				button.getTile().getChipBoardButton().setBackground(ORIGINAL_BUTTON_COLOR);
+				button.getTile().getChipBoardButton().setOpaque(true);
 				button.setEnabled(false);
 			}
 		}

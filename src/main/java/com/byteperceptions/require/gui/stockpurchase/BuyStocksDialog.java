@@ -210,12 +210,6 @@ public class BuyStocksDialog extends JDialog implements ActionListener
 
 	private void setButtonVisibility(HotelPurchaseButton button)
 	{
-		//American is hard to see with black text.
-		if(button.getHotelChain() == HotelChain.AMERICAN)
-		{
-			button.setForeground(Color.WHITE);
-		}
-		
 		if (button.getSharesRemaining() == 0)
 		{
 			button.setEnabled(false);

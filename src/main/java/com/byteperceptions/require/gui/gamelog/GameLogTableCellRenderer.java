@@ -43,9 +43,6 @@ public class GameLogTableCellRenderer implements
 			if(value instanceof HotelChain)
 			{
 				label.setBackground(((HotelChain)value).getColor());
-				if((HotelChain)value == HotelChain.AMERICAN){
-					label.setForeground(Color.WHITE);
-				}
 			}
 		}
 		

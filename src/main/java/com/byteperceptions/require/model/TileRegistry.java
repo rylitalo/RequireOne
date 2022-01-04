@@ -160,10 +160,7 @@ public class TileRegistry
 	{
 		Color color = hotelChain.getColor();
 		tile.getChipBoardButton().setBackground(color);
-		if (hotelChain == HotelChain.AMERICAN)
-		{
-			tile.getChipBoardButton().setForeground(Color.WHITE);
-		}
+		tile.getChipBoardButton().setOpaque(true);
 
 		List<Tile> adjoiningTiles = getAdjoiningTiles(tile);
 		for (Tile adjoiningTile : adjoiningTiles)
@@ -172,11 +169,7 @@ public class TileRegistry
 			{
 				adjoiningTile.setHotelChain(hotelChain);
 				adjoiningTile.getChipBoardButton().setBackground(color);
-				if (hotelChain == HotelChain.AMERICAN)
-				{
-					adjoiningTile.getChipBoardButton().setForeground(
-							Color.WHITE);
-				}
+				adjoiningTile.getChipBoardButton().setOpaque(true);
 			}
 		}
 	}
@@ -313,6 +306,7 @@ public class TileRegistry
 				// This is a dead chip
 				tile.getChipBoardButton().setBackground(Color.DARK_GRAY);
 				tile.getChipBoardButton().setForeground(Color.WHITE);
+				tile.getChipBoardButton().setOpaque(true);
 				deadChips.add(tile);
 			}
 		}

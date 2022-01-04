@@ -78,6 +78,7 @@ public class ComputerPlayer extends Player
 		for (Tile tile : deadTiles)
 		{
 			tile.getChipBoardButton().setBackground(Color.DARK_GRAY);
+			tile.getChipBoardButton().setOpaque(true);
 			removeTile(tile);
 			pickNewTile();
 		}

@@ -141,7 +141,6 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 		addButtonToPanel("F", Color.GREEN, playerScoreSheet);
 		JButton americanButton = addButtonToPanel("A", Color.BLUE,
 				playerScoreSheet);
-		americanButton.setForeground(Color.WHITE);
 		addButtonToPanel("C", Color.CYAN, playerScoreSheet);
 		addButtonToPanel("I", Color.PINK, playerScoreSheet);
 
@@ -194,6 +193,7 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 		if (color != null)
 		{
 			button.setBackground(color);
+			button.setOpaque(true);
 		}
 		component.add(button);
 		return button;
@@ -266,6 +266,7 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 				for (JButton button : buttons)
 				{
 					button.setBackground(Color.LIGHT_GRAY);
+					button.setOpaque(true);
 				}
 			}
 			else
@@ -273,6 +274,7 @@ public class ScoreSheet extends JPanel implements BoardChangedListener,
 				for (JButton button : buttons)
 				{
 					button.setBackground(ORIGINAL_BUTTON_COLOR);
+					button.setOpaque(true);
 				}
 			}
 		}

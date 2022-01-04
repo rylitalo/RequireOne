@@ -38,10 +38,8 @@ public class HotelPurchaseButton extends JButton
 		super();
 		this.hotelChain = hotelChain;
 		this.setBackground(hotelChain.getColor());
-		if(hotelChain == HotelChain.AMERICAN)
-		{
-			this.setForeground(Color.WHITE);
-		}
+		this.setOpaque(true);
+
 		this.setText(hotelChain.getLabel());
 		initialNumberOfSharesRemaining = BankStockRegistry.getInstance()
 				.getNumberOfShares(hotelChain);

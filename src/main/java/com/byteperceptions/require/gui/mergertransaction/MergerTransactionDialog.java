@@ -169,19 +169,12 @@ public class MergerTransactionDialog extends JDialog implements ActionListener
 	private Component createTradeSharesPanel()
 	{
 		Color borderColor = Color.BLACK;
-		if(mergerSurvivor == HotelChain.AMERICAN)
-		{
-			borderColor = Color.WHITE;
-		}
+
 		JPanel panel = createBorderedPanel(mergerSurvivor.getColor(), borderColor,  "Trade");
 		panel.setLayout(new GridLayout(1, 3));
 
 		numberOfSharesToTradeLabel = createStockLabel(numberOfSharesToTrade);
 		panel.add(numberOfSharesToTradeLabel);
-		if(mergerSurvivor == HotelChain.AMERICAN)
-		{
-			numberOfSharesToTradeLabel.setForeground(Color.WHITE);
-		}
 
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(2, 2));
@@ -205,19 +198,12 @@ public class MergerTransactionDialog extends JDialog implements ActionListener
 	private Component createKeepSharesPanel()
 	{
 		Color borderColor = Color.BLACK;
-		if(mergerDeceased == HotelChain.AMERICAN)
-		{
-			borderColor = Color.WHITE;
-		}
+
 		JPanel panel = createBorderedPanel(mergerDeceased.getColor(), borderColor,  "Keep");
 		panel.setLayout(new GridLayout(1, 3));
 
 		numberOfSharesToKeepLabel = createStockLabel(numberOfSharesToKeep);
 		panel.add(numberOfSharesToKeepLabel);
-		if(mergerDeceased == HotelChain.AMERICAN)
-		{
-			numberOfSharesToKeepLabel.setForeground(Color.WHITE);
-		}
 
 		// Spacer Panel
 		JPanel spacerPanel = new JPanel();

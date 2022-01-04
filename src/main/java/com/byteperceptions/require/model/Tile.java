@@ -70,6 +70,7 @@ public class Tile
 	public void playTile()
 	{
 		chipBoardButton.setBackground(Color.LIGHT_GRAY);
+		chipBoardButton.setOpaque(true);
 
 		boolean isMergerChip = TileRegistry.getInstance().isMergerChip(this);
 		if (isMergerChip)
@@ -281,5 +282,6 @@ public class Tile
 		this.alreadyPlayed = tileState.isAlreadyPlayed();
 		getChipBoardButton().setBackground(tileState.getBackgroundColor());
 		getChipBoardButton().setForeground(tileState.getForegroundColor());
+		getChipBoardButton().setOpaque(true);
 	}
 }

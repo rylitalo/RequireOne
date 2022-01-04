@@ -90,15 +90,9 @@ public enum HotelChain
 				if (this.equals(tile.getHotelChain()))
 				{
 					tile.setHotelChain(parentCompany);
-					tile.getChipBoardButton().setBackground(
-							parentCompany.getColor());
-					if(parentCompany == HotelChain.AMERICAN)
-					{
-						tile.getChipBoardButton().setForeground(Color.WHITE);
-					}
-					else{
-						tile.getChipBoardButton().setForeground(Color.BLACK);
-					}
+					tile.getChipBoardButton().setBackground(parentCompany.getColor());
+					tile.getChipBoardButton().setOpaque(true);
+					tile.getChipBoardButton().setForeground(Color.BLACK);
 				}
 			}
 

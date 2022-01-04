@@ -44,16 +44,14 @@ public class StocksPurchaseButton extends JButton
 		if (hotelPurchaseButton == null)
 		{
 			setBackground(originalColor);
+			setOpaque(true);
 			setText("Stock Purchase");
 			setForeground(Color.BLACK);
 		}
 		else
 		{
 			setBackground(hotelPurchaseButton.getHotelChain().getColor());
-			if(hotelPurchaseButton.getHotelChain() == HotelChain.AMERICAN)
-			{
-				setForeground(Color.WHITE);
-			}
+			setOpaque(true);
 			setText(hotelPurchaseButton.getHotelChain().getLabel() + " $" + hotelPurchaseButton.getHotelChain().getPrice());
 			hotelPurchaseButton.decrementSharesRemaining();
 		}
